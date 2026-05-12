@@ -1,0 +1,306 @@
+/* ============================================================
+   PROJET  : Smart Santé 2035
+   FICHIER : src/styles/global.css
+   RÔLE    : Styles globaux + couleurs de priorité médicale
+   NIVEAU  : Licence 2 Informatique – GPI
+============================================================ */
+
+/* ── Variables CSS (couleurs du projet) ─────────────────────── */
+:root {
+  --bleu-principal: #1A5276;
+  --bleu-moyen: #1F618D;
+  --bleu-clair: #2874A6;
+  --blanc: #FFFFFF;
+  --gris-fond: #F5F7FA;
+  --gris-bordure: #E0E0E0;
+  --texte-principal: #222222;
+  --texte-secondaire: #555555;
+
+  /* Couleurs de priorité médicale */
+  --rouge: #C0392B;
+  --rouge-fond: #FDEDEC;
+  --orange: #E67E22;
+  --orange-fond: #FEF9E7;
+  --jaune: #F1C40F;
+  --jaune-fond: #FEFDE7;
+  --vert: #27AE60;
+  --vert-fond: #EAFAF1;
+  --bleu-triage: #2980B9;
+  --bleu-triage-fond: #EBF5FB;
+}
+
+/* ── Reset de base ───────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--gris-fond);
+  color: var(--texte-principal);
+  font-size: 14px;
+}
+
+/* ── Layout principal ────────────────────────────────────────── */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 220px;
+  background: var(--bleu-principal);
+  color: white;
+  padding: 20px 0;
+  flex-shrink: 0;
+}
+
+.main-content {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+/* ── Navbar latérale ─────────────────────────────────────────── */
+.sidebar-logo {
+  text-align: center;
+  padding: 0 16px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.sidebar-logo h2 {
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+}
+
+.sidebar-logo p {
+  font-size: 11px;
+  color: rgba(255,255,255,0.7);
+  margin-top: 4px;
+}
+
+.sidebar-nav {
+  list-style: none;
+  margin-top: 16px;
+}
+
+.sidebar-nav li a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  font-size: 13px;
+  transition: background 0.2s;
+}
+
+.sidebar-nav li a:hover,
+.sidebar-nav li a.active {
+  background: rgba(255,255,255,0.15);
+  color: white;
+}
+
+/* ── Cartes ──────────────────────────────────────────────────── */
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  margin-bottom: 16px;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--bleu-principal);
+}
+
+.card-header h3 {
+  color: var(--bleu-principal);
+  font-size: 16px;
+}
+
+/* ── Badges de priorité médicale ─────────────────────────────── */
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.badge-rouge  { background: var(--rouge-fond);       color: var(--rouge);       border: 1px solid var(--rouge); }
+.badge-orange { background: var(--orange-fond);      color: var(--orange);      border: 1px solid var(--orange); }
+.badge-jaune  { background: var(--jaune-fond);       color: #c9a200;            border: 1px solid var(--jaune); }
+.badge-vert   { background: var(--vert-fond);        color: var(--vert);        border: 1px solid var(--vert); }
+.badge-bleu   { background: var(--bleu-triage-fond); color: var(--bleu-triage); border: 1px solid var(--bleu-triage); }
+
+/* ── Boutons ─────────────────────────────────────────────────── */
+.btn {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn:hover { opacity: 0.85; }
+
+.btn-primary   { background: var(--bleu-principal); color: white; }
+.btn-success   { background: var(--vert);           color: white; }
+.btn-danger    { background: var(--rouge);          color: white; }
+.btn-warning   { background: var(--orange);         color: white; }
+.btn-secondary { background: #95a5a6;               color: white; }
+
+/* ── Formulaires ─────────────────────────────────────────────── */
+.form-group {
+  margin-bottom: 14px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--texte-secondaire);
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--gris-bordure);
+  border-radius: 6px;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--bleu-principal);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* ── Tableau ─────────────────────────────────────────────────── */
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+thead tr {
+  background: var(--bleu-principal);
+  color: white;
+}
+
+thead th {
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+tbody tr:nth-child(even) { background: #f8f9fa; }
+tbody tr:hover           { background: #eaf2f8; }
+
+tbody td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--gris-bordure);
+}
+
+/* ── Stats (dashboard) ───────────────────────────────────────── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  border-top: 4px solid var(--bleu-principal);
+}
+
+.stat-card.rouge  { border-top-color: var(--rouge); }
+.stat-card.orange { border-top-color: var(--orange); }
+.stat-card.vert   { border-top-color: var(--vert); }
+
+.stat-number {
+  font-size: 32px;
+  font-weight: bold;
+  color: var(--bleu-principal);
+}
+
+.stat-label {
+  font-size: 11px;
+  color: var(--texte-secondaire);
+  margin-top: 4px;
+}
+
+/* ── Alertes ─────────────────────────────────────────────────── */
+.alerte {
+  padding: 12px 16px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.alerte-critique {
+  background: var(--rouge-fond);
+  border-left: 4px solid var(--rouge);
+  color: var(--rouge);
+  font-weight: bold;
+}
+
+.alerte-info {
+  background: var(--bleu-triage-fond);
+  border-left: 4px solid var(--bleu-triage);
+  color: var(--bleu-triage);
+}
+
+.alerte-succes {
+  background: var(--vert-fond);
+  border-left: 4px solid var(--vert);
+  color: var(--vert);
+}
+
+/* ── Chargement ──────────────────────────────────────────────── */
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: var(--texte-secondaire);
+  font-size: 13px;
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .sidebar        { display: none; }
+  .stats-grid     { grid-template-columns: 1fr 1fr; }
+  .form-row       { grid-template-columns: 1fr; }
+}

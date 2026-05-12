@@ -1,0 +1,26 @@
+# ============================================================
+#  PROJET  : Smart Santé 2035
+#  FICHIER : .env
+#  RÔLE    : Variables d'environnement (NE PAS partager ce fichier !)
+#  NIVEAU  : Licence 2 Informatique – GPI
+# ============================================================
+
+# Environnement : developpement | production | test
+ENV=developpement
+
+# Clé secrète Flask (à changer en production !)
+SECRET_KEY=smartsante2035-cle-secrete-changez-moi
+
+# Configuration PostgreSQL
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=smartsante_db
+DB_USER=postgres
+DB_PASSWORD=votre_mot_de_passe
+
+# Serveur Flask
+HOST=0.0.0.0
+PORT=5000
+
+# Capacité de la file de triage
+CAPACITE_FILE_TRIAGE=500
